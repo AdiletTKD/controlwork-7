@@ -34,6 +34,13 @@ const App = () => {
   };
 
 
+  const getTotalSumm = () => {
+    return orders.reduce((total, order) => {
+      return total + order.price;
+    }, 0);
+  };
+
+
   const itemButtons = Items.map((item, index) => (
     <div className='itemComponents'>
       <button className='itemBtn' key={item.id} onClick={() => handleItemClick(item.name, item.price)}>
@@ -57,7 +64,7 @@ const App = () => {
       <div className='main-menu'>
         <div className='leftBlock'>
           {orderedItems}
-          <strong className='totalPrice'>Total price: 0</strong>
+          <strong className='totalPrice'>Total price: { getTotalSumm() }</strong>
         </div>
 
         <div className='rightBlock'>
