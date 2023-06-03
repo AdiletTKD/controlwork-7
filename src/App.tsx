@@ -4,6 +4,8 @@ import './App.css';
 import { IItems } from './types';
 import foodImage from '../src/assets/icons/food.png';
 import drinkImage from '../src/assets/icons/drink.png';
+import MenuItem from './components/MenuItem/MenuItem';
+import OrderItem from './components/OrderItem/OrderItem';
 
 const App = () => {
   const Items: IItems[] = [
@@ -28,7 +30,7 @@ const App = () => {
       );
       setOrders(updatedOrders);
     } else {
-      const newOrder = { name: itemName, count: 1, price: price };
+      const newOrder = {  name: itemName, count: 1, price: price };
       setOrders([...orders, newOrder]);
     }
   };
@@ -41,23 +43,11 @@ const App = () => {
   };
 
 
-  const itemButtons = Items.map((item, index) => (
-    <div className='itemComponents'>
-      <button className='itemBtn' key={item.id} onClick={() => handleItemClick(item.name, item.price)}>
-        <img className='btnIcons' src={item.image} alt="" />
-        {item.name}
-        <p>
-          KGS {item.price}
-        </p>
-      </button>
-    </div>
+  const itemButtons = Items.map((item) => (
+    <MenuItem item={item} handleItemClick={handleItemClick}/>
   ));
 
-   const orderedItems = orders.map((order) => (
-    <div key={order.name}>
-      {order.name} ---------- x{order.count} --- {order.price} KGS
-     </div>
-  ));
+  const orderedItems = orders.map((order) => <OrderItem order={order} />)
 
   return (
     <div className="App">
