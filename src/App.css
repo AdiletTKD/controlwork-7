@@ -9,16 +9,29 @@
 }
 
 .leftBlock {
-  border: 1px solid red;
+  border: 3px solid #ccc;
   width: 30%;
 }
 
 .rightBlock {
-  border: 1px solid red;
+  padding-top: 15px;
+  padding-left: 15px;
+  border: 3px solid #ccc;
   width: 65%;
+  height: 300px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
 }
 
 .btnIcons {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 35px;
+}
+
+.totalPrice {
+  
 }
