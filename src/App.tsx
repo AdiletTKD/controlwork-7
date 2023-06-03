@@ -17,7 +17,7 @@ const App = () => {
     { id: nanoid(), name: 'Cola', price: 40, image: drinkImage },
   ];
 
-  const [orders, setOrders] = useState<{ name: string, count: number; price: number }[]>([]);
+  const [orders, setOrders] = useState<{ id?: string; name: string, count: number; price: number }[]>([]);
 
   const handleItemClick = (itemName: string, price: number) => {
     const realOrder = orders.find((order) => order.name === itemName);
@@ -35,29 +35,33 @@ const App = () => {
     }
   };
 
-
   const getTotalSumm = () => {
     return orders.reduce((total, order) => {
       return total + order.price;
     }, 0);
   };
 
+  const removeItem = (id: string) => {
+    setOrders(prevState => prevState.filter(item => item.id !== id))
+  };
 
   const itemButtons = Items.map((item) => (
     <MenuItem item={item} handleItemClick={handleItemClick}/>
   ));
 
-  const orderedItems = orders.map((order) => <OrderItem order={order} />)
+  const orderedItems = orders.map((order) => <OrderItem order={order} removeItem={removeItem} />)
 
   return (
     <div className="App">
       <div className='main-menu'>
         <div className='leftBlock'>
+          <p className='text'>Order details:</p>
           {orderedItems}
-          <strong className='totalPrice'>Total price: { getTotalSumm() }</strong>
+          <strong className='totalPrice'>Total price: { getTotalSumm() } KGS </strong>
         </div>
 
         <div className='rightBlock'>
+          <strong>Add items: </strong>
           <div className='gridContainer'>
             {itemButtons}
           </div>

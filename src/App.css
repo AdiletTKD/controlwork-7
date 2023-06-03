@@ -10,25 +10,63 @@
 
 .leftBlock {
   border: 3px solid #ccc;
-  width: 30%;
+  width: 35%;
+  padding-left: 10px;
 }
 
 .rightBlock {
   padding-top: 15px;
   padding-left: 15px;
   border: 3px solid #ccc;
-  width: 65%;
-  height: 300px;
+  width: 60%;
+  height: 400px;
 }
 
 .gridContainer {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
 
-.btnIcons {
-  width: 60px;
-  height: 35px;
+.itemBtn {
+  cursor: pointer;
+  width: 150px;
+  border-radius: 15px;
 }
 
+.itemBtn:hover {
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.cost {
+  font-weight: bold;
+}
+
+.btnIcons {
+  width: 60px;
+  height: 45px;
+}
+
+.items {
+  font-size: 15px;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+.totalPrice {
+  margin-left: 50px;
+}
+
+.text {
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.removeBtn {
+  color:red;
+  background-color: #fff;
+  border-color: #ccc;
+  border-radius: 3px;
+}

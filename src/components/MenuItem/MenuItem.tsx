@@ -16,7 +16,7 @@ const MenuItem: React.FC<MenuProps> = ({ item, handleItemClick }) => (
     >
       <img className="btnIcons" src={item.image} alt="" />
       {item.name}
-      <p>KGS {item.price}</p>
+      <p className="cost"> {item.price} KGS </p>
     </button>
   </div>
 );
